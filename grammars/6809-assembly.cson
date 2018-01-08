@@ -1,0 +1,32 @@
+# (c) 2018, Georg Ziegler
+
+scopeName: 'source.6809-assembly'
+name: '6809 Assembly'
+fileTypes: [
+  'asm'
+  'a09'
+]
+patterns: [
+    {
+        include: '#mnemonics'
+    }
+]
+
+# start of repository
+repository:
+    mnemonics:
+        patterns: [
+            {
+                include: '#mnemonics-acc-memory'
+            }
+        ]
+
+
+##### juicy stuff #####
+    'mnemonics-acc-memory':
+        patterns: [
+            {
+                match: '\\b(?i)(a[dn][cd][ab])\\b'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+        ]
