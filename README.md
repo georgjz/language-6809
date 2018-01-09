@@ -1,4 +1,4 @@
-# language-6809 package
+# 6809 Assembly Language Support in Atom
 
 Adds language support for Motorola 6809 assembly.
 
@@ -10,5 +10,6 @@ Support for labels, Hitachi 6309, etc. is planned.
 - [x] Comments
 - [ ] Labels
 - [ ] Assembler directives
-    - [ ] lwtools
+    - [x] lwtools
+    - [ ] as09
 - [ ] Hitachi 6309 mnemonics

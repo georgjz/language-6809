@@ -1,3 +1,10 @@
+## 0.3.0 - Assembler directives
+* Adds support for Assembler directives used by lwtools toolchain
+* Strings are now highlighed
+
+## 0.2.1
+* Minor corrections and typos
+
 ## 0.2.0 - Comments and numbers
 * Added comments support
 * Highlights now constant binary, hex, and decimal numbers
