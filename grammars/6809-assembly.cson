@@ -17,16 +17,67 @@ repository:
     mnemonics:
         patterns: [
             {
-                include: '#mnemonics-acc-memory'
+                include: '#mnemonics-m6809'
             }
         ]
 
 
 ##### juicy stuff #####
-    'mnemonics-acc-memory':
+    'mnemonics-m6809':
         patterns: [
+            # ADC, ADD, AND
             {
-                match: '\\b(?i)(a[dn][cd][ab])\\b'
+                match: '\\b(?i)(a[dn][cd][abd])\\b'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+            # arithmetic and logical shift
+            {
+                match: '\\b(?i)([al]s[lr]([ab])?)\\b'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+            # A and B
+            {
+                match: '\\b(?i)((bit|eor|or|sbc)[ab])\\b'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+            # A, B and D
+            {
+                match: '\\b(?i)((sub)[abd])\\b'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+            # A, B, D, S, U, X and Y
+            {
+                match: '\\b(?i)((cmp|ld|st)[abdsuxy])\\b'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+            # S, U, X and Y
+            {
+                match: '\\b(?i)((lea)[suxy])\\b'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+            # S and U
+            {
+                match: '\\b(?i)((psh|pul)[su])'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+            # A, B, and register
+            {
+                match: '\\b(?i)((clr|com|dec|inc|neg|tst)([ab])?)\\b'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+            # rotate
+            {
+                match: '\\b(?i)(ro[lr]([ab])?)\\b'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+            # branch
+            {
+                match: '\\b(?i)((l)?b[ceghlmnprsv][aceilnoqrst])'
+                name: 'keyword.mnemonic.6809-assembly'
+            }
+            # special/misc
+            {
+                match: '\\b(?i)(abx|daa|exg|mul|sex|tfr|cwai|andcc|nop|orcc|jmp|jsr|rti|rts|(swi([23])?)|sync)\\b'
                 name: 'keyword.mnemonic.6809-assembly'
             }
         ]
