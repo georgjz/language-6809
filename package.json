@@ -1,18 +1,13 @@
 {
   "name": "language-6809",
   "main": "./lib/language-6809",
-  "version": "0.0.0",
-  "description": "A short description of your package",
-  "keywords": [
-  ],
-  "activationCommands": {
-    "atom-workspace": "language-6809:toggle"
-  },
-  "repository": "https://github.com/atom/language-6809",
+  "version": "0.0.1",
+  "description": "Adds language support for Motorola 6809 assembly",
+  "keywords": [],
+  "repository": "https://github.com/georgjz/language-6809.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

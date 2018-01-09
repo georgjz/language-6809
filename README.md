@@ -1,5 +1,6 @@
 # language-6809 package
 
-A short description of your package.
+Adds language support for Motorola 6809 assembly.
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+This is contains only the mnemonics for the Motorola 6809 so far.
+Support for labels, Hitachi 6309, etc. is planned.
