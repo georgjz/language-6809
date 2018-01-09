@@ -1,3 +1,6 @@
+## 0.3.2 and 0.3.1
+* Minor corrections where certain directives wouldn't highlight correctly
+
 ## 0.3.0 - Assembler directives
 * Adds support for Assembler directives used by lwtools toolchain
 * Strings are now highlighed

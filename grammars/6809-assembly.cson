@@ -85,11 +85,11 @@ repository:
                 name: 'storage.modifier'
             }
             {
-                match: '\\b(\\.)?(?i)(d[bsw]|st[rsz]|rs|asci[isz])\\b'
+                match: '(\\.)\\b(?i)(d[bsw]|st[rsz]|rs|asci[isz])\\b'
                 name: 'storage.modifier'
             }
             {
-                match: '\\b(\\.)?(?i)((4)?byte|quad|word|blkb)\\b'
+                match: '(\\.)\\b(?i)((4)?byte|quad|word|blkb)\\b'
                 name: 'storage.modifier'
             }
             # address directives
@@ -117,7 +117,7 @@ repository:
                 name: 'storage.modifier'
             }
             {
-                match: '\\b(\\.)?(?i)(area|globl)\\b'
+                match: '(\\.)\\b(?i)(area|globl)\\b'
                 name: 'storage.modifier'
             }
             # macro directives
