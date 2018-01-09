@@ -7,7 +7,7 @@ Support for labels, Hitachi 6309, etc. is planned.
 
 ## ToDo
 
-- [ ] Comments
+- [x] Comments
 - [ ] Labels
 - [ ] Assembler directives
     - [ ] lwtools
