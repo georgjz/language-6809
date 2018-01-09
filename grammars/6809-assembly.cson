@@ -10,6 +10,12 @@ patterns: [
     {
         include: '#mnemonics'
     }
+    {
+        include: '#comments'
+    }
+    {
+        include: '#constants'
+    }
 ]
 
 # start of repository
@@ -18,6 +24,44 @@ repository:
         patterns: [
             {
                 include: '#mnemonics-m6809'
+            }
+        ]
+
+    comments:
+        patterns: [
+            # semicolon comments
+            {
+                match: '(;|(^|\\s)#\\s).*$'
+                name: 'comment.line.semicolon'
+            }
+        ]
+
+    constants:
+        patterns: [
+            # absolut
+            {
+                match: '\\#(\'.\'|[^\\s\']+)'
+                name: 'constant.numeric.hex'
+            }
+            # hex
+            {
+                match: '\\$[A-Fa-f0-9]+'
+                name: 'constant.numeric.hex'
+            }
+            # hex
+            {
+                match: '\\b([0-9]+)h\\b'
+                name: 'constant.numeric.hex'
+            }
+            # binary
+            {
+                match: '%[01]+'
+                name: 'constant.numeric.binary'
+            }
+            # decimal
+            {
+                match: '\\b([0-9]+)\\b'
+                name: 'constant.numeric.decimal'
             }
         ]
 
