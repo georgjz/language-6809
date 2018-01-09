@@ -81,15 +81,15 @@ repository:
         patterns: [
             # data directives
             {
-                match: '\\b(?i)(f[cdq]b|fc[cns]|[rz]m[bdq])\\b'
+                match: '\\b(?i)(f[cdq]b|fc[cns]|[rz]m[bdq]|include(bin)?|fill)\\b'
                 name: 'storage.modifier'
             }
             {
-                match: '\\b(?i)(\\.d[bsw]|\\.str[rsz]|\\.rs|\\.asci[isz])\\b'
+                match: '\\b(\\.)?(?i)(d[bsw]|st[rsz]|rs|asci[isz])\\b'
                 name: 'storage.modifier'
             }
             {
-                match: '\\b(?i)(\\.(4)?byte|\\.quad|\\.word|\\.blkb|include(bin)?|fill)\\b'
+                match: '\\b(\\.)?(?i)((4)?byte|quad|word|blkb)\\b'
                 name: 'storage.modifier'
             }
             # address directives
@@ -113,7 +113,11 @@ repository:
             }
             # section directives
             {
-                match: '\\b(?i)((end)?sect(ion)?|extern(al)*|.area|(im|ex)port|.globl|exdep)\\b'
+                match: '\\b(?i)((end)?sect(ion)?|extern(al)*|(im|ex)port|exdep)\\b'
+                name: 'storage.modifier'
+            }
+            {
+                match: '\\b(\\.)?(?i)(area|globl)\\b'
                 name: 'storage.modifier'
             }
             # macro directives
