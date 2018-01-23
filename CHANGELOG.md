@@ -1,9 +1,12 @@
+## 0.3.3
+* Add `opt` keyword to grammar
+
 ## 0.3.2 and 0.3.1
 * Minor corrections where certain directives wouldn't highlight correctly
 
 ## 0.3.0 - Assembler directives
 * Adds support for Assembler directives used by lwtools toolchain
-* Strings are now highlighed
+* Strings are now highlighted
 
 ## 0.2.1
 * Minor corrections and typos

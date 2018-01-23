@@ -141,7 +141,7 @@ repository:
             }
             # misc directives
             {
-                match: '\\b(?i)(end|ewor|warning|\\.module)\\b'
+                match: '\\b(?i)(end|ewor|warning|\\.module|opt)\\b'
                 name: 'storage.modifier'
             }
         ]
