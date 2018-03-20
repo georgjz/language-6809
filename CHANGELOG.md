@@ -1,3 +1,5 @@
+## 0.4.2
+* Add missing instructions/mnemonics for 6309 assembly 
 ## 0.4.1
 * Minor branch corrections
 
