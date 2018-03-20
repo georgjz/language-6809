@@ -21,7 +21,7 @@ repository:
                 include: '#mnemonics-m6309'
             }
         ]
-        
+
 ##### juicy stuff #####
     'mnemonics-m6309':
         patterns: [
@@ -92,7 +92,7 @@ repository:
             }
             # LSRX
             {
-                match: '\\b(?i)(lsr[dw])\\b'
+                match: '\\b(?i)(ls[lr][dw])\\b'
                 name: 'keyword.mnemonic.6309-assembly'
             }
             # MULD
