@@ -1,5 +1,8 @@
+# Expands the original 6809 instruction set to add the additional
+# instructions/mnemonics for the Hitachi 6908 microprocessor.
+
 scopeName: 'source.6309-assembly'
-name: '6309 Assembly (lwtools)'
+name: '6309 Assembly'
 fileTypes: [
   'asm'
   'a09'

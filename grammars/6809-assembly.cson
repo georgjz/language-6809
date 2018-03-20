@@ -1,153 +1,30 @@
+# This file contains the basic instruction set of the 6809 microprocessor
+# to use in sub-syntaxes. e.g. for adding assembler support
+
 scopeName: 'source.6809-assembly'
-name: '6809 Assembly (lwtools)'
+name: '6809 Assembly'
 fileTypes: [
   'asm'
   'a09'
 ]
 patterns: [
     {
-        include: '#mnemonics'
+        include: '#mnemonics-m6809'
     }
-    {
-        include: '#comments'
-    }
-    {
-        include: '#constants'
-    }
-    {
-        include: '#directives'
-    }
+    # {
+    #     include: '#comments'
+    # }
+    # {
+    #     include: '#constants'
+    # }
+    # {
+    #     include: '#directives'
+    # }
 ]
 
 # start of repository
 repository:
-    mnemonics:
-        patterns: [
-            {
-                include: '#mnemonics-m6809'
-            }
-        ]
-
-    comments:
-        patterns: [
-            # semicolon comments
-            {
-                match: '(;|(^|\\s)#\\s).*$'
-                name: 'comment.line.semicolon'
-            }
-        ]
-
-    constants:
-        patterns: [
-            # strings
-            {
-                begin: '"'
-                beginCaptures:
-                    0:
-                        name: 'punctuation.definition.string.begin'
-                end: '"'
-                endCaptures:
-                    0:
-                        name: 'punctuation.definition.string.end'
-                name: 'string.quoted.double.assembly'
-            }
-            # absolut
-            {
-                match: '\\#(\'.\'|[^\\s\']+)'
-                name: 'constant.numeric.hex'
-            }
-            # hex
-            {
-                match: '\\$[A-Fa-f0-9]+'
-                name: 'constant.numeric.hex'
-            }
-            # hex
-            {
-                match: '\\b([0-9]+)h\\b'
-                name: 'constant.numeric.hex'
-            }
-            # binary
-            {
-                match: '%[01]+'
-                name: 'constant.numeric.binary'
-            }
-            # decimal
-            {
-                match: '\\b([0-9]+)\\b'
-                name: 'constant.numeric.decimal'
-            }
-        ]
-    directives:
-        patterns: [
-            # data directives
-            {
-                match: '\\b(?i)(f[cdq]b|fc[cns]|[rz]m[bdq]|include(bin)?|fill)\\b'
-                name: 'storage.modifier'
-            }
-            {
-                match: '(\\.)\\b(?i)(d[bsw]|st[rsz]|rs|asci[isz])\\b'
-                name: 'storage.modifier'
-            }
-            {
-                match: '(\\.)\\b(?i)((4)?byte|quad|word|blkb)\\b'
-                name: 'storage.modifier'
-            }
-            # address directives
-            {
-                match: '\\b(?i)((re)?org|equ|set(dp)?|align)\\b'
-                name: 'storage.modifier'
-            }
-            # conditional directives
-            {
-                match: '\\b(?i)(if(eq|ne|ge|gt|le|lt|def|ndef|pragma)?|else|endc)\\b'
-                name: 'storage.modifier'
-            }
-            # pragma directives
-            {
-                match: '\\b(?i)(\\*pragma(push|pop)?|(\\*)?pragma)\\b'
-                name: 'storage.modifier'
-            }
-            {   # export missing!
-                match: '\\b(?i)(6800compat|(6809|6309)(conv)?|index0tonone|cescapes|importundefexport|undefextern|dollar(not)?local|pcaspcr|shadow|nolist|autobranchlength|nosymbolcase|symbolnocase|condundefzero|forwardrefmax|qrts|m80ext|testmode)\\b'
-                name: 'support.function.pseudo'
-            }
-            # section directives
-            {
-                match: '\\b(?i)((end)?sect(ion)?|extern(al)*|(im|ex)port|exdep)\\b'
-                name: 'storage.modifier'
-            }
-            {
-                match: '(\\.)\\b(?i)(area|globl)\\b'
-                name: 'storage.modifier'
-            }
-            # macro directives
-            {
-                match: '\\b(?i)(macro|endm)\\b'
-                name: 'storage.modifier'
-            }
-            {
-                match: '\\b(?i)(noexpand)\\b'
-                name: 'support.function.pseudo'
-            }
-            # struct directives
-            {
-                match: '\\b(?i)((end)?struct|ends)\\b'
-                name: 'storage.modifier'
-            }
-            # OS9 directives
-            {
-                match: '\\b(?i)(os9|(e)?mod)\\b'
-                name: 'storage.modifier'
-            }
-            # misc directives
-            {
-                match: '\\b(?i)(end|ewor|warning|\\.module|opt)\\b'
-                name: 'storage.modifier'
-            }
-        ]
-
-
-##### juicy stuff #####
+##### Motorola 6809 #####
     'mnemonics-m6809':
         patterns: [
             # ADC, ADD, AND

@@ -1,13 +1,19 @@
-scopeName: 'source.6809-assembly'
-name: '6809 Assembly (lwtools)'
+# Support for lwtools assembler toolchain
+
+scopeName: 'source.lwtools-assembly'
+name: '6809/6309 Assembly (lwtools)'
 fileTypes: [
   'asm'
   'a09'
 ]
 patterns: [
-    {
-        include: '#mnemonics'
-    }
+    # {
+    #     include: '#mnemonics'
+    # }
+    # lwtools will interpret everything after a asterix(*) or semicolon(;)
+    # as a comment. For compability with certain C compilers, lines
+    # begining with a hash(#) will be ignored. However, this should not be
+    # used as a general comment.
     {
         include: '#comments'
     }
@@ -21,19 +27,19 @@ patterns: [
 
 # start of repository
 repository:
-    mnemonics:
-        patterns: [
-            {
-                include: '#mnemonics-m6809'
-            }
-        ]
-
+    # mnemonics:
+    #     patterns: [
+    #         {
+    #             include: '#mnemonics-m6809'
+    #         }
+    #     ]
+    #
     comments:
         patterns: [
-            # semicolon comments
+            # asterix and semicolon comments
             {
-                match: '(;|(^|\\s)#\\s).*$'
-                name: 'comment.line.semicolon'
+                match: '([*;]|(^|\\s)#\\s).*$'
+                name: 'comment.line.semicolon.lwtools-assembly'
             }
         ]
 
@@ -148,61 +154,61 @@ repository:
 
 
 ##### juicy stuff #####
-    'mnemonics-m6809':
-        patterns: [
-            # ADC, ADD, AND
-            {
-                match: '\\b(?i)(a[dn][cd][abd])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # arithmetic and logical shift
-            {
-                match: '\\b(?i)([al]s[lr]([ab])?)\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # A and B
-            {
-                match: '\\b(?i)((bit|eor|or|sbc)[ab])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # A, B and D
-            {
-                match: '\\b(?i)((sub)[abd])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # A, B, D, S, U, X and Y
-            {
-                match: '\\b(?i)((cmp|ld|st)[abdsuxy])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # S, U, X and Y
-            {
-                match: '\\b(?i)((lea)[suxy])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # S and U
-            {
-                match: '\\b(?i)((psh|pul)[su])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # A, B, and register
-            {
-                match: '\\b(?i)((clr|com|dec|inc|neg|tst)([ab])?)\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # rotate
-            {
-                match: '\\b(?i)(ro[lr]([ab])?)\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # branch
-            {
-                match: '\\b(?i)((l)?b[ceghlmnprsv][aceilnoqrst])'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # special/misc
-            {
-                match: '\\b(?i)(abx|daa|exg|mul|sex|tfr|cwai|andcc|nop|orcc|jmp|jsr|rti|rts|(swi([23])?)|sync)\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-        ]
+    # 'mnemonics-m6809':
+    #     patterns: [
+    #         # ADC, ADD, AND
+    #         {
+    #             match: '\\b(?i)(a[dn][cd][abd])\\b'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #         # arithmetic and logical shift
+    #         {
+    #             match: '\\b(?i)([al]s[lr]([ab])?)\\b'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #         # A and B
+    #         {
+    #             match: '\\b(?i)((bit|eor|or|sbc)[ab])\\b'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #         # A, B and D
+    #         {
+    #             match: '\\b(?i)((sub)[abd])\\b'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #         # A, B, D, S, U, X and Y
+    #         {
+    #             match: '\\b(?i)((cmp|ld|st)[abdsuxy])\\b'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #         # S, U, X and Y
+    #         {
+    #             match: '\\b(?i)((lea)[suxy])\\b'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #         # S and U
+    #         {
+    #             match: '\\b(?i)((psh|pul)[su])\\b'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #         # A, B, and register
+    #         {
+    #             match: '\\b(?i)((clr|com|dec|inc|neg|tst)([ab])?)\\b'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #         # rotate
+    #         {
+    #             match: '\\b(?i)(ro[lr]([ab])?)\\b'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #         # branch
+    #         {
+    #             match: '\\b(?i)((l)?b[ceghlmnprsv][aceilnoqrst])'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #         # special/misc
+    #         {
+    #             match: '\\b(?i)(abx|daa|exg|mul|sex|tfr|cwai|andcc|nop|orcc|jmp|jsr|rti|rts|(swi([23])?)|sync)\\b'
+    #             name: 'keyword.mnemonic.6809-assembly'
+    #         }
+    #     ]
