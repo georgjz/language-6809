@@ -1,7 +1,7 @@
 {
   "name": "language-6809",
   "main": "./lib/language-6809",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Adds language support for Motorola 6809/Hitachi 6309 assembly",
   "keywords": [],
   "repository": "https://github.com/georgjz/language-6809.git",
