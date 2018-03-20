@@ -1,0 +1,155 @@
+# Syntax highlighting for lwtools assembler toolchain
+# See http://lwtools.projects.l-w.ca for more information
+
+scopeName: 'source.lwtools-toolchain'
+name: '6809/6309 Assembly (lwtools)'
+fileTypes: [
+  'asm'
+  'a09'
+]
+patterns: [
+    # lwtools supports the 6309 instruction set
+    {
+        include: 'source.6309-assembly'
+    }
+    # lwtools will interpret everything after a asterix(*) or semicolon(;)
+    # as a comment. For compability with certain C compilers, lines
+    # begining with a hash(#) will be ignored. However, this should not be
+    # used as a general comment.
+    {
+        include: '#comments'
+    }
+    # Symbols, strings and numbers
+    {
+        include: '#symbols'
+    }
+    # Assembler directives for lwtools
+    {
+        include: '#directives'
+    }
+]
+
+# start of repository
+repository:
+
+    # Comments supported by lwtools
+    comments:
+        patterns: [
+            # asterix and semicolon comments
+            {
+                match: '([*;]|(^|\\s)#\\s).*$'
+                name: 'comment.line.semicolon.lwtools-toolchain'
+            }
+        ]
+
+    # Number formats accepted by lwtools
+    symbols:
+        patterns: [
+            # strings
+            {
+                begin: '"'
+                beginCaptures:
+                    0:
+                        name: 'punctuation.definition.string.begin.lwtools-toolchain'
+                end: '"'
+                endCaptures:
+                    0:
+                        name: 'punctuation.definition.string.end.lwtools-toolchain'
+                name: 'string.quoted.double.assembly.lwtools-toolchain'
+            }
+            # absolut
+            {
+                match: '\\#(\'.\'|[^\\s\']+)'
+                name: 'constant.numeric.hex.lwtools-toolchain'
+            }
+            # hex, prefixed with ampersand($)
+            {
+                match: '-?\\$[A-Fa-f0-9]+'
+                name: 'constant.numeric.hex.lwtools-toolchain'
+            }
+            # hex, suffixed with h(h)
+            {
+                match: '-?([0-9]+)h'
+                name: 'constant.numeric.hex.lwtools-toolchain'
+            }
+            # binary
+            {
+                match: '%[01]+'
+                name: 'constant.numeric.binary.lwtools-toolchain'
+            }
+            # decimal
+            {
+                match: '\\b([0-9]+)\\b'
+                name: 'constant.numeric.decimal.lwtools-toolchain'
+            }
+        ]
+
+    # assembler directives of lwtools
+    directives:
+        patterns: [
+            # data directives
+            {
+                match: '\\b(?i)(f[cdq]b|fc[cns]|[rz]m[bdq]|include(bin)?|fill)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            {
+                match: '(\\.)\\b(?i)(d[bsw]|st[rsz]|rs|asci[isz])\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            {
+                match: '(\\.)\\b(?i)((4)?byte|quad|word|blkb)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            # address directives
+            {
+                match: '\\b(?i)((re)?org|equ|set(dp)?|align)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            # conditional directives
+            {
+                match: '\\b(?i)(if(eq|ne|ge|gt|le|lt|def|ndef|pragma)?|else|endc)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            # pragma directives
+            {
+                match: '\\b(?i)(\\*pragma(push|pop)?|(\\*)?pragma)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            {   # export missing!
+                match: '\\b(?i)(6800compat|(6809|6309)(conv)?|index0tonone|cescapes|importundefexport|undefextern|dollar(not)?local|pcaspcr|shadow|nolist|autobranchlength|nosymbolcase|symbolnocase|condundefzero|forwardrefmax|qrts|m80ext|testmode)\\b'
+                name: 'support.function.pseudo.lwtools-toolchain'
+            }
+            # section directives
+            {
+                match: '\\b(?i)((end)?sect(ion)?|extern(al)*|(im|ex)port|exdep)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            {
+                match: '(\\.)\\b(?i)(area|globl)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            # macro directives
+            {
+                match: '\\b(?i)(macro|endm)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            {
+                match: '\\b(?i)(noexpand)\\b'
+                name: 'support.function.pseudo.lwtools-toolchain'
+            }
+            # struct directives
+            {
+                match: '\\b(?i)((end)?struct|ends)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            # OS9 directives
+            {
+                match: '\\b(?i)(os9|(e)?mod)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+            # misc directives
+            {
+                match: '\\b(?i)(end|ewor|warning|\\.module|opt)\\b'
+                name: 'storage.modifier.lwtools-toolchain'
+            }
+        ]

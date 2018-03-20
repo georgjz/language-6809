@@ -8,18 +8,10 @@ fileTypes: [
   'a09'
 ]
 patterns: [
+    # The basic 6809 instruction set
     {
         include: '#mnemonics-m6809'
     }
-    # {
-    #     include: '#comments'
-    # }
-    # {
-    #     include: '#constants'
-    # }
-    # {
-    #     include: '#directives'
-    # }
 ]
 
 # start of repository
