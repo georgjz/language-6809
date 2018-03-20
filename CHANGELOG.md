@@ -1,3 +1,7 @@
+## 0.4.0 - Add 6309 Support
+* The package now supports additional instructions/mnemonics for the 6309 variant
+* Choose '6308 Assembly (lwtools)' to use it
+
 ## 0.3.3
 * Add `opt` keyword to grammar
 
