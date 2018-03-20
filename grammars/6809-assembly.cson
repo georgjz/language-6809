@@ -182,7 +182,7 @@ repository:
             }
             # S and U
             {
-                match: '\\b(?i)((psh|pul)[su])'
+                match: '\\b(?i)((psh|pul)[su])\\b'
                 name: 'keyword.mnemonic.6809-assembly'
             }
             # A, B, and register
