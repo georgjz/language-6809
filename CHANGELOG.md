@@ -1,5 +1,9 @@
+## 0.4.3
+* Fix issue #1, comments starting with a asterix(\*) now work correctly 
+
 ## 0.4.2
-* Add missing instructions/mnemonics for 6309 assembly 
+* Add missing instructions/mnemonics for 6309 assembly
+
 ## 0.4.1
 * Minor branch corrections
 
