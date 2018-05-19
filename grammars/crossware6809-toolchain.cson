@@ -1,0 +1,35 @@
+# Syntax highlighting for Crossware 6809 assembler toolchain
+# See http://crossware6809.projects.l-w.ca for more information
+
+scopeName: 'source.crossware6809-toolchain'
+name: '6809 Assembly (Crossware 6809 Assembler)'
+fileTypes: [
+    's'
+    'S'
+    'asm'
+    'a09'
+]
+patterns: [
+    # crossware 6809 assembler supports the 6809 instruction set
+    {
+        include: 'source.6809-assembly'
+    }
+    # Assembler directives for crossware6809
+    {
+        include: '#directives'
+    }
+]
+
+# start of repository
+repository:
+#
+#    # assembler directives of crossware6809
+    directives:
+        patterns: [
+            # Operators
+            {
+                match:  '(!)?\\*|(!)?\\/|\\-|\\+|!\\^|!\\.|!\\+|!X|!<|!>|!(R|L)'
+                # match:  '\\*|\\/|\\-|\\+|!'
+                name:   'keyword.operator.crossware6809-toolchain'
+            }
+        ]
