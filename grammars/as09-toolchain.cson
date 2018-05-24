@@ -2,7 +2,7 @@
 # See http://www.kingswood-consulting.co.uk/assemblers/index.html for more information
 
 scopeName: 'source.as09-toolchain'
-name: '6809/6309 Assembly (lwtools)'
+name: '6809/6309 Assembly (AS09)'
 fileTypes: [
   'asm'
   'a09'
@@ -35,9 +35,9 @@ repository:
     # Comments supported by lwtools
     comments:
         patterns: [
-            # asterix and semicolon comments
+            # semicolon comments
             {
-                match: '([*;]|(^|\\s)#\\s).*$'
+                match: '(;|(^|\\s)#\\s).*$'
                 name: 'comment.line.semicolon.as09-toolchain'
             }
         ]
@@ -58,29 +58,34 @@ repository:
                 name: 'string.quoted.double.assembly.as09-toolchain'
             }
             # absolut
+            # {
+            #     match: '\\#(\'.\'|[^\\s\']+)'
+            #     name: 'constant.numeric.hex.as09-toolchain'
+            # }
+            # base number
             {
-                match: '\\#(\'.\'|[^\\s\']+)'
-                name: 'constant.numeric.hex.as09-toolchain'
+                match: '\\b([0-9]+(\\#)[a-zA-Z0-9]+)\\b'
+                name: 'constant.numeric.as09-toolchain'
             }
-            # hex, prefixed with ampersand($)
+            # binary, prefixed with % and 0b
             {
-                match: '-?\\$[A-Fa-f0-9]+'
-                name: 'constant.numeric.hex.as09-toolchain'
-            }
-            # hex, suffixed with h(h)
-            {
-                match: '-?([0-9]+)h'
-                name: 'constant.numeric.hex.as09-toolchain'
-            }
-            # binary
-            {
-                match: '%[01]+'
+                match: '(%|0b)[01]+'
                 name: 'constant.numeric.binary.as09-toolchain'
+            }
+            # octal, prefixed with @
+            {
+                match: '@[0-7]+'
+                name: 'constant.numeric.octal.as09-toolchain'
             }
             # decimal
             {
-                match: '\\b([0-9]+)\\b'
+                match: '[0-9]+'
                 name: 'constant.numeric.decimal.as09-toolchain'
+            }
+            # hex, prefixed with ampersand($) or 0x
+            {
+                match: '(\\$|\\b0x)[A-Fa-f0-9]+\\b'
+                name: 'constant.numeric.hex.as09-toolchain'
             }
         ]
 
