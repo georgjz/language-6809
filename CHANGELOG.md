@@ -1,3 +1,6 @@
+## 0.5.1
+* Minor corrections
+
 ## 0.5.0
 * Update the README.md file
 * Add support for AS09 macro assembler
