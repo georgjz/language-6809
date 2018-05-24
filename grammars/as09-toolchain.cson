@@ -8,14 +8,11 @@ fileTypes: [
   'a09'
 ]
 patterns: [
-    # lwtools supports the 6309 instruction set
+    # as09 supports the 6309 instruction set
     {
         include: 'source.6309-assembly'
     }
-    # lwtools will interpret everything after a asterix(*) or semicolon(;)
-    # as a comment. For compability with certain C compilers, lines
-    # begining with a hash(#) will be ignored. However, this should not be
-    # used as a general comment.
+    # semicolon comments
     {
         include: '#comments'
     }
@@ -57,11 +54,6 @@ repository:
                         name: 'punctuation.definition.string.end.as09-toolchain'
                 name: 'string.quoted.double.assembly.as09-toolchain'
             }
-            # absolut
-            # {
-            #     match: '\\#(\'.\'|[^\\s\']+)'
-            #     name: 'constant.numeric.hex.as09-toolchain'
-            # }
             # base number
             {
                 match: '\\b([0-9]+(\\#)[a-zA-Z0-9]+)\\b'
@@ -79,7 +71,7 @@ repository:
             }
             # decimal
             {
-                match: '[0-9]+'
+                match: '\\b[0-9]+\\b'
                 name: 'constant.numeric.decimal.as09-toolchain'
             }
             # hex, prefixed with ampersand($) or 0x
@@ -94,67 +86,17 @@ repository:
         patterns: [
             # data directives
             {
-                match: '\\b(?i)(f[cdq]b|fc[cns]|[rz]m[bdq]|include(bin)?|fill)\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            {
-                match: '(\\.)\\b(?i)(d[bsw]|st[rsz]|rs|asci[isz])\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            {
-                match: '(\\.)\\b(?i)((4)?byte|quad|word|blkb)\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            # address directives
-            {
-                match: '\\b(?i)((re)?org|equ|set(dp)?|align)\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            # conditional directives
-            {
-                match: '\\b(?i)(if(eq|ne|ge|gt|le|lt|def|ndef|pragma)?|else|endc)\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            # pragma directives
-            {
-                match: '\\b(?i)(\\*pragma(push|pop)?|(\\*)?pragma)\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            {   # export missing!
-                match: '\\b(?i)(6800compat|(6809|6309)(conv)?|index0tonone|cescapes|importundefexport|undefextern|dollar(not)?local|pcaspcr|shadow|nolist|autobranchlength|nosymbolcase|symbolnocase|condundefzero|forwardrefmax|qrts|m80ext|testmode)\\b'
+                match: '\\b(?i)(d[bsw]|fc[bcw]|fdb)\\b'
                 name: 'support.function.pseudo.as09-toolchain'
             }
-            # section directives
+            # pseudo functions
             {
-                match: '\\b(?i)((end)?sect(ion)?|extern(al)*|(im|ex)port|exdep)\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            {
-                match: '(\\.)\\b(?i)(area|globl)\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            # macro directives
-            {
-                match: '\\b(?i)(macro|endm)\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            {
-                match: '\\b(?i)(noexpand)\\b'
+                match: '\\b(?i)(align|bss|code|data|cmap|direct|else|end(if|m)?|equ|if|include|list|macro|nolist|noopt|nop|opt|org|page|rmb|set|struct|title)\\b'
                 name: 'support.function.pseudo.as09-toolchain'
             }
-            # struct directives
+            # Operators
             {
-                match: '\\b(?i)((end)?struct|ends)\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            # OS9 directives
-            {
-                match: '\\b(?i)(os9|(e)?mod)\\b'
-                name: 'storage.modifier.as09-toolchain'
-            }
-            # misc directives
-            {
-                match: '\\b(?i)(end|ewor|warning|\\.module|opt)\\b'
-                name: 'storage.modifier.as09-toolchain'
+                match:  '\\b(hi|lo)\\b|\\%|!|&|&&|\\^|\\*|\\/|\\-|\\+|~|=|<=|>=|<<|>>|<>|<|>|\\||\\|\\|'
+                name:   'keyword.operator.armips-toolchain'
             }
         ]
