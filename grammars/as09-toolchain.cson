@@ -1,0 +1,102 @@
+# Syntax highlighting for lwtools assembler toolchain
+# See http://www.kingswood-consulting.co.uk/assemblers/index.html for more information
+
+scopeName: 'source.as09-toolchain'
+name: '6809/6309 Assembly (AS09)'
+fileTypes: [
+  'asm'
+  'a09'
+]
+patterns: [
+    # as09 supports the 6309 instruction set
+    {
+        include: 'source.6309-assembly'
+    }
+    # semicolon comments
+    {
+        include: '#comments'
+    }
+    # Symbols, strings and numbers
+    {
+        include: '#symbols'
+    }
+    # Assembler directives for lwtools
+    {
+        include: '#directives'
+    }
+]
+
+# start of repository
+repository:
+
+    # Comments supported by lwtools
+    comments:
+        patterns: [
+            # semicolon comments
+            {
+                match: '(;|(^|\\s)#\\s).*$'
+                name: 'comment.line.semicolon.as09-toolchain'
+            }
+        ]
+
+    # Number formats accepted by lwtools
+    symbols:
+        patterns: [
+            # strings
+            {
+                begin: '"'
+                beginCaptures:
+                    0:
+                        name: 'punctuation.definition.string.begin.as09-toolchain'
+                end: '"'
+                endCaptures:
+                    0:
+                        name: 'punctuation.definition.string.end.as09-toolchain'
+                name: 'string.quoted.double.assembly.as09-toolchain'
+            }
+            # base number
+            {
+                match: '\\b([0-9]+(\\#)[a-zA-Z0-9]+)\\b'
+                name: 'constant.numeric.as09-toolchain'
+            }
+            # binary, prefixed with % and 0b
+            {
+                match: '(%|0b)[01]+'
+                name: 'constant.numeric.binary.as09-toolchain'
+            }
+            # octal, prefixed with @
+            {
+                match: '@[0-7]+'
+                name: 'constant.numeric.octal.as09-toolchain'
+            }
+            # decimal
+            {
+                match: '\\b[0-9]+\\b'
+                name: 'constant.numeric.decimal.as09-toolchain'
+            }
+            # hex, prefixed with ampersand($) or 0x
+            {
+                match: '(\\$|\\b0x)[A-Fa-f0-9]+\\b'
+                name: 'constant.numeric.hex.as09-toolchain'
+            }
+        ]
+
+    # assembler directives of lwtools
+    directives:
+        patterns: [
+            # data directives
+            {
+                match: '\\b(?i)(d[bsw]|fc[bcw]|fdb)\\b'
+                name: 'support.function.pseudo.as09-toolchain'
+            }
+            # pseudo functions
+            {
+                match: '\\b(?i)(align|bss|code|data|cmap|direct|else|end(if|m)?|equ|if|include|list|macro|nolist|noopt|nop|opt|org|page|rmb|set|struct|title)\\b'
+                name: 'support.function.pseudo.as09-toolchain'
+            }
+            # Operators
+            {
+                match:  '\\b(hi|lo)\\b|\\%|!|&|&&|\\^|\\*|\\/|\\-|\\+|~|=|<=|>=|<<|>>|<>|<|>|\\||\\|\\|'
+                name:   'keyword.operator.armips-toolchain'
+            }
+        ]
