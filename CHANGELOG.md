@@ -1,3 +1,6 @@
+## 0.5.2
+* Mostly code refactoring and some small changes
+
 ## 0.5.1
 * Minor corrections
 
