@@ -40,7 +40,7 @@ repository:
       }
       # Octal, suffixed with O or Q
       {
-        match: '-?([0-9]+)(O|Q)'
+        match: '-?([0-9]+)[OQ]'
         name: 'constant.numeric.octal.crossware6809-toolchain'
       }
       # Decimal, prefixed with ampersand($)

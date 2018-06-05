@@ -5,7 +5,6 @@ scopeName: 'source.6809-assembly'
 name: '6809 Assembly'
 fileTypes: [
   'asm'
-  'a09'
 ]
 patterns: [
   # The basic 6809 instruction set
@@ -14,7 +13,7 @@ patterns: [
 
 # start of repository ----------------------------------------------------------
 repository:
-  
+
   # Motorola 6809 Basic Instruction Set
   'mnemonics-m6809':
     patterns: [

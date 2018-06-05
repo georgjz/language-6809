@@ -5,7 +5,6 @@ scopeName: 'source.6309-assembly'
 name: '6309 Assembly'
 fileTypes: [
   'asm'
-  'a09'
 ]
 patterns: [
   { include: 'source.6809-assembly' }
@@ -14,7 +13,7 @@ patterns: [
 
 # start of repository ----------------------------------------------------------
 repository:
-  
+
   # Expanded Hitachi 6309 Instruction Set
   'mnemonics-h6309':
     patterns: [

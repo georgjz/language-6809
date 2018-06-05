@@ -4,6 +4,8 @@
 scopeName: 'source.lwtools-toolchain'
 name: '6809/6309 Assembly (lwtools)'
 fileTypes: [
+  's'
+  'S'
   'asm'
   'a09'
 ]

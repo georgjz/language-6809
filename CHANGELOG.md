@@ -1,3 +1,6 @@
+## 0.5.3
+* Streamline the supported file types
+
 ## 0.5.2
 * Mostly code refactoring and some small changes
 
