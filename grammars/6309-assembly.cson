@@ -8,145 +8,134 @@ fileTypes: [
   'a09'
 ]
 patterns: [
-    {
-        include: 'source.6809-assembly'
-    }
-    {
-        include: '#mnemonics'
-    }
+  { include: 'source.6809-assembly' }
+  { include: '#mnemonics-h6309' }
 ]
 
-# start of repository
+# start of repository ----------------------------------------------------------
 repository:
-    mnemonics:
-        patterns: [
-            {
-                include: '#mnemonics-m6309'
-            }
-        ]
-
-##### juicy stuff #####
-    'mnemonics-m6309':
-        patterns: [
-            # AIM, EIM, TIM
-            {
-                match: '\\b(?i)([aeot]im)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # ADC, ADD, AND
-            {
-                match: '\\b(?i)(add[efw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # ASL, ASRD
-            {
-                match: '\\b(?i)(as[rl]d)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # BITD, BITMD
-            {
-                match: '\\b(?i)(bitm?d)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # CLRD, CLRE, CLRF, CLRW
-            {
-                match: '\\b(?i)(clr[defw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # CMPE, CMPF, CMPW
-            {
-                match: '\\b(?i)(cmp[efw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # COMD, COME, COMF, COMW
-            {
-                match: '\\b(?i)(com[defw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # DEC
-            {
-                match: '\\b(?i)(dec[defw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # DIVD, DIVQ
-            {
-                match: '\\b(?i)(div[dq])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # EORD
-            {
-                match: '\\b(?i)(eord)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # INCX
-            {
-                match: '\\b(?i)(inc[defw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # LDX
-            {
-                match: '\\b(?i)(ld[efqw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # LDMD
-            {
-                match: '\\b(?i)(ldmd)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # LSRX
-            {
-                match: '\\b(?i)(ls[lr][dw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # MULD
-            {
-                match: '\\b(?i)(muld)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # NEGD
-            {
-                match: '\\b(?i)(negd)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # ORD
-            {
-                match: '\\b(?i)(ord)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # PSHSW, PSHUW
-            {
-                match: '\\b(?i)((psh|pul)[su]w)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # ROL, ROR
-            {
-                match: '\\b(?i)(ro[lr][dw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # SBCD
-            {
-                match: '\\b(?i)(sbcd)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # SEXW
-            {
-                match: '\\b(?i)(sexw)\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # STX
-            {
-                match: '\\b(?i)(st[efqw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # SUBX
-            {
-                match: '\\b(?i)(sub[efw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-            # TSTX
-            {
-                match: '\\b(?i)(tst[defw])\\b'
-                name: 'keyword.mnemonic.6309-assembly'
-            }
-
-        ]
+  
+  # Expanded Hitachi 6309 Instruction Set
+  'mnemonics-h6309':
+    patterns: [
+      # AIM, EIM, TIM
+      {
+        match: '\\b(?i)([aeot]im)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # ADC, ADD, AND
+      {
+        match: '\\b(?i)(add[efw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # ASL, ASRD
+      {
+        match: '\\b(?i)(as[rl]d)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # BITD, BITMD
+      {
+        match: '\\b(?i)(bitm?d)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # CLRD, CLRE, CLRF, CLRW
+      {
+        match: '\\b(?i)(clr[defw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # CMPE, CMPF, CMPW
+      {
+        match: '\\b(?i)(cmp[efw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # COMD, COME, COMF, COMW
+      {
+        match: '\\b(?i)(com[defw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # DEC
+      {
+        match: '\\b(?i)(dec[defw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # DIVD, DIVQ
+      {
+        match: '\\b(?i)(div[dq])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # EORD
+      {
+        match: '\\b(?i)(eord)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # INCX
+      {
+        match: '\\b(?i)(inc[defw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # LDX
+      {
+        match: '\\b(?i)(ld[efqw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # LDMD
+      {
+        match: '\\b(?i)(ldmd)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # LSRX
+      {
+        match: '\\b(?i)(ls[lr][dw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # MULD
+      {
+        match: '\\b(?i)(muld)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # NEGD
+      {
+        match: '\\b(?i)(negd)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # ORD
+      {
+        match: '\\b(?i)(ord)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # PSHSW, PSHUW
+      {
+        match: '\\b(?i)((psh|pul)[su]w)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # ROL, ROR
+      {
+        match: '\\b(?i)(ro[lr][dw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # SBCD
+      {
+        match: '\\b(?i)(sbcd)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # SEXW
+      {
+        match: '\\b(?i)(sexw)\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # STX
+      {
+        match: '\\b(?i)(st[efqw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # SUBX
+      {
+        match: '\\b(?i)(sub[efw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+      # TSTX
+      {
+        match: '\\b(?i)(tst[defw])\\b'
+        name: 'keyword.mnemonic.6309-assembly'
+      }
+    ]

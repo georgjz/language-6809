@@ -4,10 +4,13 @@
   "version": "0.5.0",
   "description": "Adds language support for Motorola 6809/Hitachi 6309 assembly",
   "keywords": [],
-  "repository": "https://github.com/georgjz/language-6809.git",
+  "repository": "git@github.com:georgjz/language-6809.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/georgjz/language-6809.git/issues"
+  }
 }

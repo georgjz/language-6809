@@ -1,9 +1,12 @@
+## 0.5.1
+* Mostly code refactoring and fixing some typos
+
 ## 0.5.0
 * Update the README.md file
 * Add support for AS09 macro assembler
 
 ## 0.4.3
-* Fix issue #1, comments starting with a asterisk(\*) now work correctly 
+* Fix issue #1, comments starting with a asterisk(\*) now work correctly
 
 ## 0.4.2
 * Add missing instructions/mnemonics for 6309 assembly
