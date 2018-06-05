@@ -8,7 +8,7 @@
     "6309",
     "Vectrex"
   ],
-  "repository": "git@github.com:georgjz/language-6809.git",
+  "repository": "https://github.com/georgjz/language-6809.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0"
