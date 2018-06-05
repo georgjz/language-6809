@@ -1,5 +1,5 @@
 # This file contains the basic instruction set of the 6809 microprocessor
-# to use in sub-syntaxes. e.g. for adding assembler support
+# to use in sub-syntaxes, e.g. for adding assembler support
 
 scopeName: 'source.6809-assembly'
 name: '6809 Assembly'
@@ -8,70 +8,69 @@ fileTypes: [
   'a09'
 ]
 patterns: [
-    # The basic 6809 instruction set
-    {
-        include: '#mnemonics-m6809'
-    }
+  # The basic 6809 instruction set
+  { include: '#mnemonics-m6809' }
 ]
 
-# start of repository
+# start of repository ----------------------------------------------------------
 repository:
-##### Motorola 6809 #####
-    'mnemonics-m6809':
-        patterns: [
-            # ADC, ADD, AND
-            {
-                match: '\\b(?i)(a[dn][cd][abd])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # arithmetic and logical shift
-            {
-                match: '\\b(?i)([al]s[lr]([ab])?)\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # A and B
-            {
-                match: '\\b(?i)((bit|eor|or|sbc)[ab])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # A, B and D
-            {
-                match: '\\b(?i)((sub)[abd])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # A, B, D, S, U, X and Y
-            {
-                match: '\\b(?i)((cmp|ld|st)[abdsuxy])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # S, U, X and Y
-            {
-                match: '\\b(?i)((lea)[suxy])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # S and U
-            {
-                match: '\\b(?i)((psh|pul)[su])\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # A, B, and register
-            {
-                match: '\\b(?i)((clr|com|dec|inc|neg|tst)([ab])?)\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # rotate
-            {
-                match: '\\b(?i)(ro[lr]([ab])?)\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # branch
-            {
-                match: '\\b(?i)((l)?b[ceghlmnprsv][aceilnoqrst])'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-            # special/misc
-            {
-                match: '\\b(?i)(abx|daa|exg|mul|sex|tfr|cwai|andcc|nop|orcc|jmp|jsr|rti|rts|(swi([23])?)|sync)\\b'
-                name: 'keyword.mnemonic.6809-assembly'
-            }
-        ]
+  
+  # Motorola 6809 Basic Instruction Set
+  'mnemonics-m6809':
+    patterns: [
+      # ADC, ADD, AND
+      {
+        match: '\\b(?i)(a[dn][cd][abd])\\b'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+      # arithmetic and logical shift
+      {
+        match: '\\b(?i)([al]s[lr]([ab])?)\\b'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+      # A and B
+      {
+        match: '\\b(?i)((bit|eor|or|sbc)[ab])\\b'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+      # A, B and D
+      {
+        match: '\\b(?i)((sub)[abd])\\b'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+      # A, B, D, S, U, X and Y
+      {
+        match: '\\b(?i)((cmp|ld|st)[abdsuxy])\\b'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+      # S, U, X and Y
+      {
+        match: '\\b(?i)((lea)[suxy])\\b'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+      # S and U
+      {
+        match: '\\b(?i)((psh|pul)[su])\\b'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+      # A, B, and register
+      {
+        match: '\\b(?i)((clr|com|dec|inc|neg|tst)([ab])?)\\b'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+      # rotate
+      {
+        match: '\\b(?i)(ro[lr]([ab])?)\\b'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+      # branch
+      {
+        match: '\\b(?i)((l)?b[ceghlmnprsv][aceilnoqrst])'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+      # special/misc
+      {
+        match: '\\b(?i)(abx|daa|exg|mul|sex|tfr|cwai|andcc|nop|orcc|jmp|jsr|rti|rts|(swi([23])?)|sync)\\b'
+        name: 'keyword.mnemonic.6809-assembly'
+      }
+    ]
