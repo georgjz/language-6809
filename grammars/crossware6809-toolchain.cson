@@ -22,6 +22,11 @@ repository:
   # Numbers
   symbols:
     patterns: [
+      # Hex, suffixed with h
+      {
+        match: '-?[0-9]([a-fA-F0-9]+)(?i)h'
+        name: 'constant.numeric.hex.crossware6809-toolchain'
+      }
       # Binary, prefixed with %
       {
         match: '%[01]+'
@@ -33,9 +38,8 @@ repository:
         name: 'constant.numeric.binary.crossware6809-toolchain'
       }
       # Octal, prefixed with @
-      # TODO: fix prefix
       {
-        match: '@[01]+'
+        match: '@[0-7]+'
         name: 'constant.numeric.octal.crossware6809-toolchain'
       }
       # Octal, suffixed with O or Q
@@ -43,7 +47,7 @@ repository:
         match: '-?([0-9]+)[OQ]'
         name: 'constant.numeric.octal.crossware6809-toolchain'
       }
-      # Decimal, prefixed with ampersand($)
+      # Decimal, prefixed with ampersand(&)
       {
         match: '(&)?([0-9]+)'
         name: 'constant.numeric.decimal.crossware6809-toolchain'
@@ -53,12 +57,6 @@ repository:
         match: '-?\\$[A-Fa-f0-9]+'
         name: 'constant.numeric.hex.crossware6809-toolchain'
       }
-      # Hex, suffixed with h
-      # TODO: first character must be 0 - 9
-      {
-        match: '-?([0-9]+)h'
-        name: 'constant.numeric.hex.crossware6809-toolchain'
-      }
     ]
 
   # Assembler directives of crossware6809
@@ -66,7 +64,7 @@ repository:
     patterns: [
       # Data directives
       {
-        match: '\\b(?i)(bsz|equ|fc(b|c)|fdb)\\b'
+        match: '\\b(?i)(bsz|equ|fc[bc]|fdb)\\b'
         name: 'storage.modifier.crossware6809-toolchain'
       }
       # Object, source control directives
@@ -81,12 +79,12 @@ repository:
       }
       # Conditional directives
       {
-        match: '\\b(?i)((no)?(c)?list|listf|elsec|end(c|m)?|if(i)?(n)?c|ifcc)\\b'
+        match: '\\b(?i)((no)?(c)?list|listf|elsec|end[cm]?|if(i)?(n)?c|ifcc)\\b'
         name: 'storage.modifier.crossware6809-toolchain'
       }
       # Operators
       {
-        match: '(!)?\\*|(!)?\\/|\\-|\\+|!\\^|!\\.|!\\+|!X|!<|!>|!(R|L)'
+        match: '(!)?\\*|(!)?\\/|\\-|\\+|!\\^|!\\.|!\\+|!X|!<|!>|![RL]'
         name: 'keyword.operator.crossware6809-toolchain'
       }
     ]

@@ -1,4 +1,5 @@
 ## 0.5.3
+* Fixed issues: issue #3, 
 * Streamline the supported file types
 
 ## 0.5.2
