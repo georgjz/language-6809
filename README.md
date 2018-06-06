@@ -11,9 +11,9 @@ microprocessors. It supports multiple toolchains listed below.
 
 This package includes syntax highlighting for assembler directives, labels, etc. for the following toolchains:
 
-Toolchain | Link | 6809 | 6309
-----------|------|------|-----
-lwtools | http://lwtools.projects.l-w.ca | :heavy_check_mark: | :heavy_check_mark:
-AS09 | http://www.kingswood-consulting.co.uk/assemblers/index.html | :heavy_check_mark: | :heavy_check_mark:
+Toolchain | Link | 6809 | 6309 | Platforms |
+----------|------|------|------|-----------|
+lwtools | http://lwtools.projects.l-w.ca | :heavy_check_mark: | :heavy_check_mark: | Linux, Mac, Windows
+AS09 | http://www.kingswood-consulting.co.uk/assemblers/index.html | :heavy_check_mark: | :heavy_check_mark: | Linux, Windows 
 
 I'm happy to add more assemblers as requested. Please use Github's issue function to report bugs or improvement ideas. Contributions are greatly appreciated!
