@@ -81,30 +81,30 @@ repository:
       # data directives
       {
         match: '\\b(?i)(f[cdq]b|fc[cns]|[rz]m[bdq]|include(bin)?|fill)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       {
         match: '(\\.)\\b(?i)(d[bsw]|st[rsz]|rs|asci[isz])\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       {
         match: '(\\.)\\b(?i)((4)?byte|quad|word|blkb)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       # address directives
       {
         match: '\\b(?i)((re)?org|equ|set(dp)?|align)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       # conditional directives
       {
         match: '\\b(?i)(if(eq|ne|ge|gt|le|lt|def|ndef|pragma)?|else|endc)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       # pragma directives
       {
         match: '\\b(?i)(\\*pragma(push|pop)?|(\\*)?pragma)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       { # export missing!
         match: '\\b(?i)(6800compat|(6809|6309)(conv)?|index0tonone|cescapes|importundefexport|undefextern|dollar(not)?local|pcaspcr|shadow|nolist|autobranchlength|nosymbolcase|symbolnocase|condundefzero|forwardrefmax|qrts|m80ext|testmode)\\b'
@@ -113,16 +113,16 @@ repository:
       # section directives
       {
         match: '\\b(?i)((end)?sect(ion)?|extern(al)*|(im|ex)port|exdep)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       {
         match: '(\\.)\\b(?i)(area|globl)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       # macro directives
       {
         match: '\\b(?i)(macro|endm)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       {
         match: '\\b(?i)(noexpand)\\b'
@@ -131,16 +131,16 @@ repository:
       # struct directives
       {
         match: '\\b(?i)((end)?struct|ends)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       # OS9 directives
       {
         match: '\\b(?i)(os9|(e)?mod)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
       # misc directives
       {
         match: '\\b(?i)(end|ewor|warning|\\.module|opt)\\b'
-        name: 'storage.modifier.lwtools-toolchain'
+        name: 'support.function.pseudo.lwtools-toolchain'
       }
     ]
