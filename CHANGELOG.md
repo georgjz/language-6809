@@ -1,5 +1,10 @@
+## 0.5.4
+* Fixed issues: issue #9
+* Changed scopes for clearer code
+* Add support for Crossware assembler, see README.md
+
 ## 0.5.3
-* Fixed issues: issue #3, issue #5 
+* Fixed issues: issue #3, issue #5
 * Streamline the supported file types
 
 ## 0.5.2
