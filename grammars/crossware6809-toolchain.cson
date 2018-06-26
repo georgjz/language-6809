@@ -10,7 +10,6 @@ fileTypes: [
   'a09'
 ]
 patterns: [
-
   { include: 'source.6809-assembly' } # crossware 6809 assembler supports the 6809 instruction set
   { include: '#symbols' }             # symbols
   { include: '#directives' }          # Assembler directives for crossware6809

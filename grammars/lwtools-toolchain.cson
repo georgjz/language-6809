@@ -10,17 +10,14 @@ fileTypes: [
   'a09'
 ]
 patterns: [
-  # lwtools supports the 6309 instruction set
-  { include: 'source.6309-assembly' }
+  { include: 'source.6309-assembly' }   # lwtools supports the 6309 instruction set
   # lwtools will interpret everything after a asterix(*) or semicolon(;)
   # as a comment. For compability with certain C compilers, lines
   # begining with a hash(#) will be ignored. However, this should not be
   # used as a general comment.
-  { include: '#comments' }
-  # Symbols, strings and numbers
-  { include: '#symbols' }
-  # Assembler directives for lwtools
-  { include: '#directives' }
+  { include: '#comments' }              # Comments
+  { include: '#symbols' }               # Symbols, strings and numbers
+  { include: '#directives' }            # Assembler directives for lwtools
 ]
 
 # start of repository
