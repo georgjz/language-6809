@@ -10,7 +10,6 @@ fileTypes: [
   'a09'
 ]
 patterns: [
-
   { include: 'source.6809-assembly' } # crossware 6809 assembler supports the 6809 instruction set
   { include: '#symbols' }             # symbols
   { include: '#directives' }          # Assembler directives for crossware6809
@@ -65,22 +64,22 @@ repository:
       # Data directives
       {
         match: '\\b(?i)(bsz|equ|fc[bc]|fdb)\\b'
-        name: 'storage.modifier.crossware6809-toolchain'
+        name: 'support.function.pseudo.crossware6809-toolchain'
       }
       # Object, source control directives
       {
         match: '\\b(?i)((no)?(obj|page|una)|sym|common|fail|fields|include|name|opt|org|pagewidth|section|set(dp)?|spc|ttl|x(d|r)ef)\\b'
-        name: 'storage.modifier.crossware6809-toolchain'
+        name: 'support.function.pseudo.crossware6809-toolchain'
       }
       # Macros directives
       {
         match: '\\b(?i)((no)?m(c|d|ex)|macr)\\b'
-        name: 'storage.modifier.crossware6809-toolchain'
+        name: 'support.function.pseudo.crossware6809-toolchain'
       }
       # Conditional directives
       {
         match: '\\b(?i)((no)?(c)?list|listf|elsec|end[cm]?|if(i)?(n)?c|ifcc)\\b'
-        name: 'storage.modifier.crossware6809-toolchain'
+        name: 'support.function.pseudo.crossware6809-toolchain'
       }
       # Operators
       {

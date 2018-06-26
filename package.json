@@ -1,12 +1,15 @@
 {
   "name": "language-6809",
-  "main": "./lib/language-6809",
   "version": "0.5.3",
-  "description": "Adds language support for Motorola 6809/Hitachi 6309 assembly. Useful for Vectrex development.",
+  "description": "Adds language support for Motorola 6809/Hitachi 6309 assembly. Useful for Vectrex and Dragon development.",
   "keywords": [
     "6809",
     "6309",
-    "Vectrex"
+    "Vectrex",
+    "Dragon32",
+    "Dragon64",
+    "grammar",
+    "language"
   ],
   "repository": "https://github.com/georgjz/language-6809.git",
   "license": "MIT",
