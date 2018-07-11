@@ -1,0 +1,3 @@
+'.source.lwtools-toolchain':
+  'editor':
+    'commentStart': ';'
