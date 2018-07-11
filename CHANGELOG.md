@@ -1,3 +1,6 @@
+## 0.5.5
+* Fixed minor issue with comments when using VIM comment command (Ctrl+/)
+
 ## 0.5.4
 * Fixed issues: issue #9
 * Changed scopes for clearer code
