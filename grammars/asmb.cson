@@ -70,7 +70,7 @@ repository:
       {
         # main rule
         # contentName: 'keyword.asmb'
-        begin: '\\-(.*?)\\s+(.*?)\\s+'
+        begin: '\\-(.*?)\\s+(.*?)\\s+(.*?)\\s+(.*?)\\s*'
         beginCaptures:
           1:
             name: 'meta.label.asmb'
@@ -80,12 +80,6 @@ repository:
                 # match: 'b(.*?)b'
                 match: '[a-zA-Z0-9][a-zA-Z0-9_]+'
               }
-              # mumu
-              # {
-              #   # name: 'support.function.pseudo.asmb'
-              #   # match: 'mumu'
-              #   include: 'source.6809-assembly'
-              # }
             ]
           2:
             name: 'meta.opcode.asmb'
@@ -93,7 +87,34 @@ repository:
               # 6809 directives
               { include: 'source.6809-assembly' }
             ]
-        end: '\\s*'
+          3:
+            name: 'meta.operand.asmb'
+            # patterns: [
+            #   # operands
+            #   {
+            #     name: 'constant.numeric.hex.asmb'
+            #     match: '\\$[A-Fa-f0-9]+'
+            #   }
+            # ]
+          4:
+            name: 'meta.comment.asmb'
+            # patterns: [
+            #   {
+            #     name: 'comment.line.semicolon.asmb'
+            #     match: 'mumu'
+            #   }
+            # ]
+        end: '\\n'
+        # end: '(.*?)\\s*'
+        # endCaptures:
+        #   1:
+        #     name: 'meta.operand.asmb'
+        #     patterns: [
+        #       {
+        #         name: 'support.function.pseudo.asmb'
+        #         match: '[a-zA-Z0-9][a-zA-Z0-9_]'
+        #       }
+        #     ]
         # end: '$'
         # end: '-'
       }
