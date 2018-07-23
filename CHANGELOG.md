@@ -1,3 +1,6 @@
+## 0.5.6
+* Fix hex numbers in lwtools grammar
+
 ## 0.5.5
 * Fixed minor issue with comments when using VIM comment command (Ctrl+/)
 
