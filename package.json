@@ -1,6 +1,6 @@
 {
   "name": "language-6809",
-  "version": "0.5.6",
+  "version": "0.6.0",
   "description": "Adds language support for Motorola 6809/Hitachi 6309 assembly. Useful for Vectrex and Dragon development.",
   "keywords": [
     "6809",
