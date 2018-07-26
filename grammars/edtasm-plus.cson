@@ -1,0 +1,124 @@
+# Syntax highlighting for lwtools assembler toolchain
+
+scopeName: 'source.edtasm-plus'
+name: 'EDTASM+ (6809)'
+fileTypes: [
+  's'
+  'S'
+  'asm'
+]
+patterns: [
+  { include: 'source.6809-assembly' }   # lwtools supports the 6809 instruction set
+  { include: '#comments' }              # Comments
+  { include: '#symbols' }               # Symbols, strings and numbers
+  { include: '#directives' }            # Assembler directives for lwtools
+]
+
+# start of repository
+repository:
+
+  # Comments supported by lwtools
+  comments:
+    patterns: [
+      # asterix and semicolon comments
+      {
+        match: '([*;]|(^|\\s)#\\s).*$'
+        name: 'comment.line.semicolon.lwtools-toolchain'
+      }
+    ]
+
+  # Number formats accepted by lwtools
+  symbols:
+    patterns: [
+      # strings
+      # {
+      #   begin: '"'
+      #   beginCaptures:
+      #     0:
+      #       name: 'punctuation.definition.string.begin.lwtools-toolchain'
+      #   end: '"'
+      #   endCaptures:
+      #     0:
+      #       name: 'punctuation.definition.string.end.lwtools-toolchain'
+      #   name: 'string.quoted.double.assembly.lwtools-toolchain'
+      # }
+      # absolut
+      # {
+      #   match: '\\#(\'.\'|[^\\s\']+)'
+      #   name: 'constant.numeric.hex.lwtools-toolchain'
+      # }
+      # hex, prefixed with ampersand($)
+      # {
+      #   match: '-?\\$[A-Fa-f0-9]+'
+      #   name: 'constant.numeric.hex.lwtools-toolchain'
+      # }
+      # hex, suffixed with h(h)
+      # {
+      #   match: '-?([a-fA-F0-9]+)h'
+      #   name: 'constant.numeric.hex.lwtools-toolchain'
+      # }
+      # binary
+      # {
+      #   match: '%[01]+'
+      #   name: 'constant.numeric.binary.lwtools-toolchain'
+      # }
+      # decimal
+      # {
+      #   match: '\\b([0-9]+)\\b'
+      #   name: 'constant.numeric.decimal.lwtools-toolchain'
+      # }
+    ]
+
+  # assembler directives of lwtools
+  directives:
+    patterns: [
+      # data directives
+      {
+        match: '\\b(?i)(fc[bc]|fdb|end|equ|org|rmb|set(dp)?)\\b'
+        name: 'support.function.pseudo.lwtools-toolchain'
+      }
+      # {
+      #   match: '(.*?)\\s+'
+      #   name: 'entity.name.function.label.edtasm-plus'
+      # }
+      # {
+      #   match: '(.*?)\\s(.*?)\\s(.*?)\\s+(.*?)\\s*'
+      #   captures:
+      #     1: name: 'entity.name.function.label.edtasm-plus'
+      #     2: name: 'keyword.mnemonic.edtasm-plus'
+      #     3: name: 'constant.numeric.hex.edtasm-plus'
+      #     4: name: 'comment.line.semicolon.edtasm-plus'
+      # }
+      {
+        match: '(.*?)\\s+(.*?)\\s+(.*?)\\s+(.*?)\\n'
+        captures:
+          1: name: 'entity.name.function.label.edtasm-plus'
+          2: name: 'keyword.mnemonic.edtasm-plus'
+          3: name: 'constant.numeric.hex.edtasm-plus'
+          4: name: 'comment.line.semicolon.edtasm-plus'
+      }
+      # code line
+      # {
+      #   contentName: 'keyword.edtasm-plus'
+      #   begin: '\\-\\s*(.*?)\\s*\\-'
+      #   beginCaptures:
+      #     1:
+      #       name: 'markup.heading.edtasm-plus'
+      #       patterns: [
+      #         {
+      #           name: 'constant.character.edtasm-plus'
+      #           match : 'b(.*?)b'
+      #           captures:
+      #             1:
+      #               name: 'markup.italic.edtasm-plus'
+      #               patterns: [
+      #                 {
+      #                   match: 'c'
+      #                   name: 'support.function.edtasm-plus'
+      #                 }
+      #               ]
+      #         }
+      #       ]
+      #   # end: '-'
+      # }
+    ]
