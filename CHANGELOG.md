@@ -1,3 +1,6 @@
+## 0.6.1
+* Fix hex numbers in lwtools grammar (again)
+
 ## 0.5.6
 * Fix hex numbers in lwtools grammar
 
