@@ -60,7 +60,7 @@ repository:
       }
       # hex, suffixed with h(h)
       {
-        match: '-?([a-fA-F0-9]+)h'
+        match: '-?\\b([a-fA-F0-9]+)h\\b'
         name: 'constant.numeric.hex.lwtools-toolchain'
       }
       # binary
