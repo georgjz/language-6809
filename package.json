@@ -18,7 +18,8 @@
     "node": "*"
   },
   "dependencies": {
-    "tree-sitter-6809": "latest"
+    "tree-sitter-6809": "latest",
+    "nan": "latest"
   },
   "bugs": {
     "url": "https://github.com/georgjz/language-6809.git/issues"
