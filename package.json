@@ -16,7 +16,9 @@
   "engines": {
     "atom": ">=1.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+      "tree-sitter-6809": "^0.1.0"
+  },
   "bugs": {
     "url": "https://github.com/georgjz/language-6809.git/issues"
   }

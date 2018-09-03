@@ -1,0 +1,17 @@
+# Tree-sitter test grammar
+name: '6809 (lwtools, Tree-Sitter)'
+scopeName: 'ts-6809'
+type: 'tree-sitter'
+parser: 'tree-sitter-6809'
+
+fileTypes: [
+  's'
+  'S'
+  'asm'
+]
+
+# actual magic
+scopes:
+  'constant': 'constant.number.hex'
+  'opcode > memnonic': 'keyword.memnonic'
+  'opcode > imm_marker': 'entity.name.function'
