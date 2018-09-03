@@ -1,6 +1,6 @@
 {
   "name": "language-6809",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Adds language support for Motorola 6809/Hitachi 6309 assembly. Useful for Vectrex and Dragon development.",
   "keywords": [
     "6809",
@@ -18,7 +18,7 @@
     "node": "*"
   },
   "dependencies": {
-      "tree-sitter-6809": "latest"
+    "tree-sitter-6809": "latest"
   },
   "bugs": {
     "url": "https://github.com/georgjz/language-6809.git/issues"
