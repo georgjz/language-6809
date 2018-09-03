@@ -14,10 +14,11 @@
   "repository": "https://github.com/georgjz/language-6809.git",
   "license": "MIT",
   "engines": {
-    "atom": ">=1.0.0"
+    "atom": "*",
+    "node": "*"
   },
   "dependencies": {
-      "tree-sitter-6809": "^0.1.0"
+      "tree-sitter-6809": "latest"
   },
   "bugs": {
     "url": "https://github.com/georgjz/language-6809.git/issues"

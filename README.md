@@ -1,12 +1,15 @@
-# 6809/6309 Assembly Language Support in Atom
 
+**NOTE**: I've started to rewrite this package to use tree-sitter parsers instead of textMate grammars. Starting with version 0.7.0, the old textMate-style grammars will no longer be updated. I'll rewrite them by and by.
+
+I'll keep the old grammars active until I finish the tree-sitter equivalent. There is a simple replacement for lwtools already. The grammar name has a added `Tree-Sitter` to it's name to distinguish it from the textMate grammar.
+
+# 6809/6309 Assembly Language Support in Atom
 Adds language support for Motorola 6809 assembly to the [Atom Editor](https://atom.io). This is useful for writing code for the Vectrex.
 
 This package contains the mnemonics for the
 [Motorola 6809](https://en.wikipedia.org/wiki/Motorola_6809) and
 [Hitachi 6309](https://en.wikipedia.org/wiki/Hitachi_6309)
 microprocessors. It supports multiple toolchains listed below.
-
 ## Supported toolchains, assemblers, linkers, etc.
 
 This package includes syntax highlighting for assembler directives, labels, etc. for the following toolchains:
