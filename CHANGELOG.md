@@ -1,3 +1,12 @@
+## 0.7.2
+* Remove certain function due to an unresolved bug in Atom
+
+## 0.7.1
+* Fix a missing dependency for tree-sitter
+
+## 0.7.0
+* Bump to 0.7.0, textMate grammars are no longer updated
+
 ## 0.6.1
 * Fix hex numbers in lwtools grammar (again)
 
