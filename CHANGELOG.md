@@ -1,3 +1,6 @@
+## 0.7.6
+* Fixed small dot error
+ 
 ## 0.7.5
 * Swapped pseudo-codes from wrong assembler with the correct ones
 
