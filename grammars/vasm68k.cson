@@ -2,7 +2,7 @@
 # See http://sun.hasenbraten.de/vasm/ for more information
 
 scopeName: 'source.vasm68k'
-name: '68k/68000 (vasm)'
+name: '68k/68000 (vasmmot)'
 fileTypes: [
   'asm'
   'x68'
@@ -10,15 +10,9 @@ fileTypes: [
 ]
 patterns: [
   { include: 'source.68k-assembly' } # lwtools supports the 6309 instruction set
-  # lwtools will interpret everything after a asterix(*) or semicolon(;)
-  # as a comment. For compability with certain C compilers, lines
-  # begining with a hash(#) will be ignored. However, this should not be
-  # used as a general comment.
-  # { include: '#comments' }              # Comments
+  { include: '#comments' } # Comments
   { include: '#symbols' } # Symbols, strings and numbers
   { include: '#directives' } # Assembler directives for lwtools
-  { include: '#comments' } # Comments
-  # { include: '#directives' }            # Assembler directives for lwtools
 ]
 
 # start of repository
@@ -29,10 +23,7 @@ repository:
     patterns: [
       # pound symbol comments
       {
-        # match: '(#|(^|\\s)#\\s).*\n'
-        # match: '\\#(\'.\'|[^\\s\']+)'
-        match: '\\#.*$'
-        # match: '\\#.*\n'
+        match: ';.*$'
         name: 'comment.line.vasm68k'
       }
     ]
@@ -56,28 +47,38 @@ repository:
       {
         captures:
           1: name: 'entity.name.function.label.vasm68k'
-        match: '\\.?\\b([A-Za-z0-9_]+)\\$?:'
+        match: '\\.?\\b([A-Za-z0-9_]+)\\$?::?'
         name: 'meta.function.label.vasm68k'
       }
-      # absolut
+      # # absolut
       {
         match: '\\#\\b([\\w0-9]+)\\b'
         name: 'constant.numeric.hex.vasm68k'
       }
-      # hex, prefixed with 0x or 0X
+      # absolut address/number
+      # {
+      #   match: '\\#(\'.\'|[^\\s\']+)'
+      #   name: 'constant.numeric.hex.merlin'
+      # }
+      # hex, prefixed with ampersand($)
       {
-        match: '-?0[xX][A-Fa-f0-9]+'
-        name: 'constant.numeric.hex.vasm68k'
+        match: '\\#?-?\\$[A-Fa-f0-9]+'
+        name: 'constant.numeric.hex.merlin'
       }
-      # binary prefixed with 0b or 0B
+      # octal, prefixed with @
       {
-        match: '0[bB][01]+'
-        name: 'constant.numeric.binary.vasm68k'
+        match: '\\#?@([0-7]+)\\b'
+        name: 'constant.numeric.octal.merlin'
+      }
+      # binary
+      {
+        match: '\\#?%[01]+'
+        name: 'constant.numeric.binary.merlin'
       }
       # decimal
       {
-        match: '\\#?\\b([0-9]+)\\b'
-        name: 'constant.numeric.decimal.vasm68k'
+        match: '\\b([0-9]+)\\b'
+        name: 'constant.numeric.decimal.merlin'
       }
     ]
 
@@ -89,72 +90,22 @@ repository:
         match: '\\b(?i)([ad][0-7]|sp)\\b'
         name: 'storage.other.register.vasm68k'
       }
-  #     # data directives
-  #     {
-  #       match: '\\b(?i)(f[cdq]b|fc[cns]|[rz]m[bdq]|include(bin)?|fill)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     {
-  #       match: '(\\.)\\b(?i)(d[bsw]|st[rsz]|rs|asci[isz])\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     {
-  #       match: '(\\.)\\b(?i)((4)?byte|quad|word|blkb)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     # address directives
-  #     {
-  #       match: '\\b(?i)((re)?org|equ|set(dp)?|align)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     # conditional directives
-  #     {
-  #       match: '\\b(?i)(if(eq|ne|ge|gt|le|lt|def|ndef|pragma)?|else|endc)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     # pragma directives
-  #     {
-  #       match: '\\b(?i)(\\*pragma(push|pop)?|(\\*)?pragma)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     { # export missing!
-  #       match: '\\b(?i)(6800compat|(6809|6309)(conv)?|index0tonone|cescapes|importundefexport|undefextern|dollar(not)?local|pcaspcr|shadow|nolist|autobranchlength|nosymbolcase|symbolnocase|condundefzero|forwardrefmax|qrts|m80ext|testmode)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     # section directives
-  #     {
-  #       match: '\\b(?i)((end)?sect(ion)?|extern(al)*|(im|ex)port|exdep)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     {
-  #       match: '(\\.)\\b(?i)(area|globl)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     # macro directives
-  #     {
-  #       match: '\\b(?i)(macro|endm)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     {
-  #       match: '\\b(?i)(noexpand)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     # struct directives
-  #     {
-  #       match: '\\b(?i)((end)?struct|ends)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     # OS9 directives
-  #     {
-  #       match: '\\b(?i)(os9|(e)?mod)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-  #     # misc directives
-  #     {
-  #       match: '\\b(?i)(end|ewor|warning|\\.module|opt)\\b'
-  #       name: 'support.function.pseudo.lwtools-toolchain'
-  #     }
-    # Operators
+      # data directives
+      {
+        match: '\\.\\b(?i)([248]?byte|asciiz?|abort|align|balign[lw]?|comm|double|end[mr]|equ(iv)?|err|extern|fail|file|float|globa?l|half|incbin|incdir|include|int|irpc?|lcomm|list|local|long|macro|nolist|org|p2align[lw]?|quad|rept|section|set|size|short|single|skip|space|stab[snd]|string|swbeg|type|uahalf|ualong|uaquad|uashort|uaword|weak|word|zero)\\b'
+        name: 'support.function.pseudo.vasm68k'
+      }
+      # conditional
+      {
+        match: '(\\.)\\b(?i)(if(eq|ne|gt|ge|lt|le|b|nb|def|ndef)?)\\b'
+        name: 'support.function.pseudo.vasm68k'
+      }
+      # section shorts
+      {
+        match: '(\\.)\\b(?i)(bss|data|rodata|sbss|sdata|sdata2|stab|stabstr|text|tocd)\\b'
+        name: 'support.function.pseudo.vasm68k'
+      }
+      # Operators
       {
         match: '\\*|\\/|\\-|\\+|\\^|\\+|!|<=?|>=?|=|\\~|\\%|\\||\\&'
         name: 'keyword.operator.crossware6809-toolchain'
