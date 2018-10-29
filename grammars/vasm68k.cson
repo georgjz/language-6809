@@ -9,15 +9,15 @@ fileTypes: [
   's'
 ]
 patterns: [
-  { include: 'source.68k-assembly' }   # lwtools supports the 6309 instruction set
+  { include: 'source.68k-assembly' } # lwtools supports the 6309 instruction set
   # lwtools will interpret everything after a asterix(*) or semicolon(;)
   # as a comment. For compability with certain C compilers, lines
   # begining with a hash(#) will be ignored. However, this should not be
   # used as a general comment.
   # { include: '#comments' }              # Comments
-  { include: '#symbols' }               # Symbols, strings and numbers
-  { include: '#directives' }            # Assembler directives for lwtools
-  { include: '#comments' }              # Comments
+  { include: '#symbols' } # Symbols, strings and numbers
+  { include: '#directives' } # Assembler directives for lwtools
+  { include: '#comments' } # Comments
   # { include: '#directives' }            # Assembler directives for lwtools
 ]
 
@@ -154,4 +154,9 @@ repository:
   #       match: '\\b(?i)(end|ewor|warning|\\.module|opt)\\b'
   #       name: 'support.function.pseudo.lwtools-toolchain'
   #     }
+    # Operators
+      {
+        match: '\\*|\\/|\\-|\\+|\\^|\\+|!|<=?|>=?|=|\\~|\\%|\\||\\&'
+        name: 'keyword.operator.crossware6809-toolchain'
+      }
     ]
