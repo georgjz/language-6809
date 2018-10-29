@@ -1,12 +1,6 @@
 # This file contains the basic instruction set of the 68k microprocessor
 
 scopeName: 'source.68k-assembly'
-name: '68k/68000 (test)'
-fileTypes: [
-  'asm'
-  'x68'
-  's'
-]
 patterns: [
   # The basic 68000 instruction set
   { include: '#mnemonics-m68000' }
@@ -19,71 +13,11 @@ repository:
   'mnemonics-m68000':
     patterns: [
       # opcodes
-      # {
-      #   # match: ''
-      #   match: '\\b(?i)(ADD|ADDA|ADDI|ADDQ|ADDX|AND|ANDI|ASL|ASR|D?B(CC|LS|EQ|NE|HI|CC|PL|VC|RA|LT|LE|GT|GE|MI|VS)|DB[FT]|BCHG|BCLR|BSET|BSR|BTST|CHK|CLR|CMP|CMPA|CMPI|CMPM|DIVS|DIVU|EOR|EORI|EXG|EXT|JMP|JSR|LEA|LSL|LSR|MOVE|MOVEA|MOVEM|MOVEQ|MULS|MULU|NEG|NEGX|NOP|NOT|OR|ORI|ROL|ROR|ROXL|ROXR|RTE|RTR|RTS|SUBtract|SWAP|TRAP|TRAPV|TST)(\\.[bwl])?\\b'
-      #   # match: '\\b(?i)(a[dn][cd][abd])\\b'
-      #   name: 'keyword.mnemonic.68k-assembly'
-      # }
       {
         captures:
-          # 1: name: 'support.function.pseudo.merlin'
           1: name: 'keyword.mnemonic.68k-assembly'
           2: name: 'constant.language.68k-assembly'
-        # match: '\\b(?i)((ADD|ADDA|ADDI|ADDQ|ADDX|AND|ANDI|ASL|ASR|D?B(CC|LS|EQ|NE|HI|CC|PL|VC|RA|LT|LE|GT|GE|MI|VS)|DB[FT]|BCHG|BCLR|BSET|BSR|BTST|CHK|CLR|CMP|CMPA|CMPI|CMPM|DIVS|DIVU|EOR|EORI|EXG|EXT|JMP|JSR|LEA|LSL|LSR|MOVE|MOVEA|MOVEM|MOVEQ|MULS|MULU|NEG|NEGX|NOP|NOT|OR|ORI|ROL|ROR|ROXL|ROXR|RTE|RTR|RTS|SUBtract|SWAP|TRAP|TRAPV|TST))\\.?(([bwl])?)\\b'
-        # match: '\\b((?i:ADD|ADDA|ADDI|ADDQ|ADDX|AND|ANDI|ASL|ASR|D?B(CC|LS|EQ|NE|HI|CC|PL|VC|RA|LT|LE|GT|GE|MI|VS)|DB[FT]|BCHG|BCLR|BSET|BSR|BTST|CHK|CLR|CMP|CMPA|CMPI|CMPM|DIVS|DIVU|EOR|EORI|EXG|EXT|JMP|JSR|LEA|LSL|LSR|MOVE|MOVEA|MOVEM|MOVEQ|MULS|MULU|NEG|NEGX|NOP|NOT|OR|ORI|ROL|ROR|ROXL|ROXR|RTE|RTR|RTS|SUBtract|SWAP|TRAP|TRAPV|TST))\\.?((?i:[bwl])?)\\b'
         match: '\\b((?i:ADD|ADDA|ADDI|ADDQ|ADDX|AND|ANDI|ASL|ASR|D?BCC|D?BLS|D?BEQ|D?BNE|D?BHI|D?BCC|D?BPL|D?BVC|D?BRA|D?BLT|D?BLE|D?BGT|D?BGE|D?BMI|D?BVS|DB[FT]|BCHG|BCLR|BSET|BSR|BTST|CHK|CLR|CMP|CMPA|CMPI|CMPM|DIVS|DIVU|EOR|EORI|EXG|EXT|JMP|JSR|LEA|LSL|LSR|MOVE|MOVEA|MOVEM|MOVEQ|MULS|MULU|NEG|NEGX|NOP|NOT|OR|ORI|ROL|ROR|ROXL|ROXR|RTE|RTR|RTS|SUBtract|SWAP|TRAP|TRAPV|TST))\\.?((?i:[bwl])?)\\b'
-        # match: '\\b((?i:cyc))\\s+((?i:on|off|ave))\\b'
         name: 'meta.mnemonics.68k-assembly'
       }
-      # # arithmetic and logical shift
-      # {
-      #   match: '\\b(?i)([al]s[lr]([ab])?)\\b'
-      #   name: 'keyword.mnemonic.6809-assembly'
-      # }
-      # # A and B
-      # {
-      #   match: '\\b(?i)((bit|eor|or|sbc)[ab])\\b'
-      #   name: 'keyword.mnemonic.6809-assembly'
-      # }
-      # # A, B and D
-      # {
-      #   match: '\\b(?i)((sub)[abd])\\b'
-      #   name: 'keyword.mnemonic.6809-assembly'
-      # }
-      # # A, B, D, S, U, X and Y
-      # {
-      #   match: '\\b(?i)((cmp|ld|st)[abdsuxy])\\b'
-      #   name: 'keyword.mnemonic.6809-assembly'
-      # }
-      # # S, U, X and Y
-      # {
-      #   match: '\\b(?i)((lea)[suxy])\\b'
-      #   name: 'keyword.mnemonic.6809-assembly'
-      # }
-      # # S and U
-      # {
-      #   match: '\\b(?i)((psh|pul)[su])\\b'
-      #   name: 'keyword.mnemonic.6809-assembly'
-      # }
-      # # A, B, and register
-      # {
-      #   match: '\\b(?i)((clr|com|dec|inc|neg|tst)([ab])?)\\b'
-      #   name: 'keyword.mnemonic.6809-assembly'
-      # }
-      # # rotate
-      # {
-      #   match: '\\b(?i)(ro[lr]([ab])?)\\b'
-      #   name: 'keyword.mnemonic.6809-assembly'
-      # }
-      # # branch
-      # {
-      #   match: '\\b(?i)((l)?b[ceghlmnprsv][aceilnoqrst])'
-      #   name: 'keyword.mnemonic.6809-assembly'
-      # }
-      # # special/misc
-      # {
-      #   match: '\\b(?i)(abx|daa|exg|mul|sex|tfr|cwai|andcc|nop|orcc|jmp|jsr|rti|rts|(swi([23])?)|sync)\\b'
-      #   name: 'keyword.mnemonic.6809-assembly'
-      # }
     ]

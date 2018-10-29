@@ -55,11 +55,6 @@ repository:
         match: '\\#\\b([\\w0-9]+)\\b'
         name: 'constant.numeric.hex.vasm68k'
       }
-      # absolut address/number
-      # {
-      #   match: '\\#(\'.\'|[^\\s\']+)'
-      #   name: 'constant.numeric.hex.merlin'
-      # }
       # hex, prefixed with ampersand($)
       {
         match: '\\#?-?\\$[A-Fa-f0-9]+'
