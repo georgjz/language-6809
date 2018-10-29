@@ -2,7 +2,7 @@
 # See http://sun.hasenbraten.de/vasm/ for more information
 
 scopeName: 'source.vasm68k'
-name: '68k/68000 (vasmmot)'
+name: '68k/68000 (vasmm68k_mot)'
 fileTypes: [
   'asm'
   'x68'
@@ -87,19 +87,19 @@ repository:
       }
       # data directives
       {
-        match: '\\.\\b(?i)([248]?byte|asciiz?|abort|align|balign[lw]?|comm|double|end[mr]|equ(iv)?|err|extern|fail|file|float|globa?l|half|incbin|incdir|include|int|irpc?|lcomm|list|local|long|macro|nolist|org|p2align[lw]?|quad|rept|section|set|size|short|single|skip|space|stab[snd]|string|swbeg|type|uahalf|ualong|uaquad|uashort|uaword|weak|word|zero)\\b'
+        match: '\\.\\b(?i)(align|blk.[bdlqswx]|bss(_[cf])?|cargs|clr[fs]o|code(_[cf])?|comm|comment|cseg|data(_[cf])?|(dcb?|d[rs]).[bdlqswx]|dseg|echo|eininline|else|end|endif|endm|endr|equ(.[sdxp])?|erem|even|fail|fequ.[sdxp]|fo.[bwlqsdxp]|idnt|if(eq|ne|gt|ge|lt|n?[bcd]|macron?d)?|incbin|incdir|include|inline|list)\\b'
         name: 'support.function.pseudo.vasm68k'
       }
       # conditional
       {
-        match: '(\\.)\\b(?i)(if(eq|ne|gt|ge|lt|le|b|nb|def|ndef)?)\\b'
+        match: '(\\.)\\b(?i)(llen|macro|mexit|nolist|nopage|nref|odd|offset|org|output|page|plen|printt|printv|public|rem|rept|rorg|rsreset|rsset|section|set|setfo|setso|spc|text|ttl|weak|xdef|xref)\\b'
         name: 'support.function.pseudo.vasm68k'
       }
       # section shorts
-      {
-        match: '(\\.)\\b(?i)(bss|data|rodata|sbss|sdata|sdata2|stab|stabstr|text|tocd)\\b'
-        name: 'support.function.pseudo.vasm68k'
-      }
+      # {
+      #   match: '(\\.)\\b(?i)(bss|data|rodata|sbss|sdata|sdata2|stab|stabstr|text|tocd)\\b'
+      #   name: 'support.function.pseudo.vasm68k'
+      # }
       # Operators
       {
         match: '\\*|\\/|\\-|\\+|\\^|\\+|!|<=?|>=?|=|\\~|\\%|\\||\\&'

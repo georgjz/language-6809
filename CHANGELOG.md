@@ -1,6 +1,9 @@
+## 0.7.5
+* Swapped pseudo-codes from wrong assembler with the correct ones
+
 ## 0.7.4
 * Small commit to fix some branching issues
-  
+
 ## 0.7.3
 * Added a simple 68k assembly grammar for vasm, Motorola Standard, see README.md for details
 
