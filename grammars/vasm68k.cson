@@ -87,12 +87,12 @@ repository:
       }
       # data directives
       {
-        match: '\\.\\b(?i)(align|blk.[bdlqswx]|bss(_[cf])?|cargs|clr[fs]o|code(_[cf])?|comm|comment|cseg|data(_[cf])?|(dcb?|d[rs]).[bdlqswx]|dseg|echo|eininline|else|end|endif|endm|endr|equ(.[sdxp])?|erem|even|fail|fequ.[sdxp]|fo.[bwlqsdxp]|idnt|if(eq|ne|gt|ge|lt|n?[bcd]|macron?d)?|incbin|incdir|include|inline|list)\\b'
+        match: '\\b(?i)(align|blk.[bdlqswx]|bss(_[cf])?|cargs|clr[fs]o|code(_[cf])?|comm|comment|cseg|data(_[cf])?|(dcb?|d[rs]).[bdlqswx]|dseg|echo|eininline|else|end|endif|endm|endr|equ(.[sdxp])?|erem|even|fail|fequ.[sdxp]|fo.[bwlqsdxp]|idnt|if(eq|ne|gt|ge|lt|n?[bcd]|macron?d)?|incbin|incdir|include|inline|list)\\b'
         name: 'support.function.pseudo.vasm68k'
       }
       # conditional
       {
-        match: '(\\.)\\b(?i)(llen|macro|mexit|nolist|nopage|nref|odd|offset|org|output|page|plen|printt|printv|public|rem|rept|rorg|rsreset|rsset|section|set|setfo|setso|spc|text|ttl|weak|xdef|xref)\\b'
+        match: '\\b(?i)(llen|macro|mexit|nolist|nopage|nref|odd|offset|org|output|page|plen|printt|printv|public|rem|rept|rorg|rsreset|rsset|section|set|setfo|setso|spc|text|ttl|weak|xdef|xref)\\b'
         name: 'support.function.pseudo.vasm68k'
       }
       # section shorts
