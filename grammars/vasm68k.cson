@@ -1,0 +1,108 @@
+# Syntax highlighting for vasm assembler toolchain
+# See http://sun.hasenbraten.de/vasm/ for more information
+
+scopeName: 'source.vasm68k'
+name: '68k/68000 (vasmmot)'
+fileTypes: [
+  'asm'
+  'x68'
+  's'
+]
+patterns: [
+  { include: 'source.68k-assembly' } # lwtools supports the 6309 instruction set
+  { include: '#comments' } # Comments
+  { include: '#symbols' } # Symbols, strings and numbers
+  { include: '#directives' } # Assembler directives for lwtools
+]
+
+# start of repository
+repository:
+
+  # Comments supported by lwtools
+  comments:
+    patterns: [
+      # pound symbol comments
+      {
+        match: ';.*$'
+        name: 'comment.line.vasm68k'
+      }
+    ]
+
+  # Number formats accepted by lwtools
+  symbols:
+    patterns: [
+      # strings
+      {
+        begin: '"'
+        beginCaptures:
+          0:
+            name: 'punctuation.definition.string.begin.vasm68k'
+        end: '"'
+        endCaptures:
+          0:
+            name: 'punctuation.definition.string.end.lwtools-toolchain'
+        name: 'string.quoted.double.assembly.vasm68k'
+      }
+      # labels
+      {
+        captures:
+          1: name: 'entity.name.function.label.vasm68k'
+        match: '\\.?\\b([A-Za-z0-9_]+)\\$?::?'
+        name: 'meta.function.label.vasm68k'
+      }
+      # # absolut
+      {
+        match: '\\#\\b([\\w0-9]+)\\b'
+        name: 'constant.numeric.hex.vasm68k'
+      }
+      # hex, prefixed with ampersand($)
+      {
+        match: '\\#?-?\\$[A-Fa-f0-9]+'
+        name: 'constant.numeric.hex.merlin'
+      }
+      # octal, prefixed with @
+      {
+        match: '\\#?@([0-7]+)\\b'
+        name: 'constant.numeric.octal.merlin'
+      }
+      # binary
+      {
+        match: '\\#?%[01]+'
+        name: 'constant.numeric.binary.merlin'
+      }
+      # decimal
+      {
+        match: '\\b([0-9]+)\\b'
+        name: 'constant.numeric.decimal.merlin'
+      }
+    ]
+
+  # assembler directives of lwtools
+  directives:
+    patterns: [
+      # registers
+      {
+        match: '\\b(?i)([ad][0-7]|sp)\\b'
+        name: 'storage.other.register.vasm68k'
+      }
+      # data directives
+      {
+        match: '\\.\\b(?i)([248]?byte|asciiz?|abort|align|balign[lw]?|comm|double|end[mr]|equ(iv)?|err|extern|fail|file|float|globa?l|half|incbin|incdir|include|int|irpc?|lcomm|list|local|long|macro|nolist|org|p2align[lw]?|quad|rept|section|set|size|short|single|skip|space|stab[snd]|string|swbeg|type|uahalf|ualong|uaquad|uashort|uaword|weak|word|zero)\\b'
+        name: 'support.function.pseudo.vasm68k'
+      }
+      # conditional
+      {
+        match: '(\\.)\\b(?i)(if(eq|ne|gt|ge|lt|le|b|nb|def|ndef)?)\\b'
+        name: 'support.function.pseudo.vasm68k'
+      }
+      # section shorts
+      {
+        match: '(\\.)\\b(?i)(bss|data|rodata|sbss|sdata|sdata2|stab|stabstr|text|tocd)\\b'
+        name: 'support.function.pseudo.vasm68k'
+      }
+      # Operators
+      {
+        match: '\\*|\\/|\\-|\\+|\\^|\\+|!|<=?|>=?|=|\\~|\\%|\\||\\&'
+        name: 'keyword.operator.crossware6809-toolchain'
+      }
+    ]
